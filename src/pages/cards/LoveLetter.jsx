@@ -96,14 +96,17 @@ Altamashhhhhhhhh`;
 }
 
 const styles = {
-    backBtn: {
-        position: "absolute",
-        top: "20px",
-        left: "20px",
-        padding: "8px 15px",
-        background: "#ec4899",
-        color: "white",
-        border: "none",
-        borderRadius: "8px",
-        cursor: "pointer",
-    },}
+  backBtn: {
+    position: "absolute",
+    top: "15px",
+    left: "15px",
+    padding: "6px 12px",
+    fontSize: "0.85rem",
+    background: "#ec4899",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer",
+    zIndex: 10
+  },
+};

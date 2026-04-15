@@ -266,3 +266,61 @@
     transform: scale(1.2);
   }
 }
+
+/* 📱 MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+
+  .content {
+    padding: 25px 20px;
+    width: 92%;
+    max-height: 90vh;
+    border-radius: 20px;
+  }
+
+  .content h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .next-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .logout-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .hearts span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .content h1 {
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .next-btn {
+    width: 100%;
+  }
+}
+
+.hearts {
+  position: relative;
+  width: 100%;
+  height: 0;
+}

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Dancing+Script:wght@600&display=swap');
-/* 🌸 Background (soft romantic gradient) */
+
 /* 🌸 MAIN BACKGROUND */
 .hub-container {
-  height: 100vh;
+  min-height: 100vh; /* FIX for mobile */
   padding: 20px;
 
   display: flex;
@@ -17,7 +17,7 @@
 
 /* 💌 LOVE CARD */
 .love-card {
-  width: 90%;
+  width: 100%;
   max-width: 600px;
 
   background: rgba(255, 255, 255, 0.6);
@@ -37,6 +37,7 @@
 
 /* 💖 TITLE */
 .title {
+  font-family: 'Playfair Display', serif;
   font-size: 2rem;
   margin-bottom: 15px;
 
@@ -141,5 +142,51 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE PART */
+/* ========================= */
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+  .love-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .message {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* 👉 buttons become single column */
+  .buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons button {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+
+  .hearts span {
+    font-size: 14px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .love-card {
+    max-width: 500px;
+  }
+
+  .title {
+    font-size: 1.8rem;
   }
 }

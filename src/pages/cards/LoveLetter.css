@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
 /* 🌸 Background */
 .letter-container {
-  height: 100vh;
+  min-height: 100vh; /* FIX mobile issue */
+  padding: 20px;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
   background: linear-gradient(135deg, #fff1f5, #ffe4e9);
   overflow: hidden;
+  position: relative;
 }
 
 /* 💌 Envelope */
@@ -36,17 +41,13 @@
 
 /* 💥 Envelope opening */
 @keyframes openFlap {
-  0% {
-    transform: rotateX(0deg);
-  }
-  100% {
-    transform: rotateX(-120deg);
-  }
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-120deg); }
 }
 
 /* 💖 Letter */
 .letter-card {
-  width: 90%;
+  width: 100%;
   max-width: 600px;
 
   background: #fffafc;
@@ -56,12 +57,14 @@
   box-shadow: 0 15px 40px rgba(255, 105, 135, 0.3);
 
   font-family: "Dancing Script", cursive;
-  font-size: 1.0rem;
-  line-height: 1.2;
+  font-size: 1rem;
+  line-height: 1.5;
 
   color: #5a0f1c;
 
-  animation: letterEntry 3s ease;
+  animation: letterEntry 2s ease;
+  overflow-y: auto; /* important for mobile */
+  max-height: 80vh;
 }
 
 /* ✨ Entry */
@@ -79,6 +82,7 @@
 /* ⌨️ Text */
 pre {
   white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /* 💓 Cursor */
@@ -89,15 +93,13 @@ pre::after {
 
 /* 💓 Blink */
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  50% { opacity: 0; }
 }
 
 /* ❤️ Next Button */
 .next-btn {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 20px;
 
   border: none;
   border-radius: 25px;
@@ -109,10 +111,13 @@ pre::after {
 
   animation: fadeIn 1s ease;
   transition: 0.3s;
+
+  width: 100%;
 }
 
+/* ✨ Hover */
 .next-btn:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 107, 129, 0.5);
 }
 
@@ -120,4 +125,36 @@ pre::after {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ========================= */
+
+/* Phones */
+@media (max-width: 600px) {
+
+  .letter-card {
+    padding: 20px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border-radius: 15px;
+  }
+
+  .envelope {
+    width: 180px;
+    height: 120px;
+  }
+
+  .next-btn {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .letter-card {
+    max-width: 500px;
+  }
 }

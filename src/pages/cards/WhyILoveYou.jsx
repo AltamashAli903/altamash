@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function WhyILovesYou() {
   const [openIndex, setOpenIndex] = useState(null);
   const navigate = useNavigate();
+
+  // 📱 Mobile detection
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const letters = [
     "I Love You Because You Are Prettiest Girl In This World ......💖",
@@ -32,17 +41,34 @@ export default function WhyILovesYou() {
         </button>
 
         {/* 💌 Title */}
-        <h1 style={styles.title}>💌 Why I Love You 💌</h1>
+        <h1
+          style={{
+            ...styles.title,
+            fontSize: isMobile ? "24px" : "32px",
+          }}
+        >
+          💌 Why I Love You 💌
+        </h1>
 
         {/* 📩 GRID */}
-        <div style={styles.grid}>
+        <div
+          style={{
+            ...styles.grid,
+            gridTemplateColumns: isMobile
+              ? "1fr"
+              : "repeat(4, minmax(220px, 1fr))",
+            gap: isMobile ? "20px" : "40px",
+          }}
+        >
           {letters.map((_, i) => (
-            <div
-              key={i}
-              style={styles.card}
-              onClick={() => setOpenIndex(i)}
-            >
-              <div style={styles.envelope}>
+            <div key={i} style={styles.card} onClick={() => setOpenIndex(i)}>
+              <div
+                style={{
+                  ...styles.envelope,
+                  width: isMobile ? "90%" : "240px",
+                  height: isMobile ? "140px" : "150px",
+                }}
+              >
                 <div style={styles.flap}></div>
                 <p style={styles.envelopeText}>Open Me 💖</p>
               </div>
@@ -52,7 +78,11 @@ export default function WhyILovesYou() {
 
         {/* 🎁 Next */}
         <button
-          style={styles.surpriseBtn}
+          style={{
+            ...styles.surpriseBtn,
+            padding: isMobile ? "10px 20px" : "12px 25px",
+            fontSize: isMobile ? "14px" : "16px",
+          }}
           onClick={() => navigate("/final")}
         >
           Next Surprise 🎁
@@ -62,7 +92,13 @@ export default function WhyILovesYou() {
       {/* 💖 POPUP */}
       {openIndex !== null && (
         <div style={styles.overlay}>
-          <div style={styles.popup}>
+          <div
+            style={{
+              ...styles.popup,
+              padding: isMobile ? "25px 15px" : "40px",
+              width: isMobile ? "90%" : "400px",
+            }}
+          >
             <button
               style={styles.popupBack}
               onClick={() => setOpenIndex(null)}
@@ -70,7 +106,12 @@ export default function WhyILovesYou() {
               ← Back
             </button>
 
-            <p style={styles.message}>
+            <p
+              style={{
+                ...styles.message,
+                fontSize: isMobile ? "16px" : "20px",
+              }}
+            >
               {letters[openIndex]}
             </p>
           </div>
@@ -79,8 +120,8 @@ export default function WhyILovesYou() {
     </>
   );
 }
-const styles = {
 
+const styles = {
   container: {
     minHeight: "100vh",
     width: "100%",
@@ -104,29 +145,26 @@ const styles = {
   },
 
   title: {
-    fontSize: "32px",
     color: "#ec4899",
-    marginBottom: "40px",
+    marginBottom: "30px",
     textAlign: "center",
   },
 
-  /* 🔥 FIXED GRID */
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(4, minmax(220px, 1fr))",
-    gap: "40px",
     width: "100%",
-    maxWidth: "1100px", // 👈 prevents overflow
+    maxWidth: "1100px",
     justifyItems: "center",
   },
 
   card: {
     cursor: "pointer",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
   },
 
   envelope: {
-    width: "240px", // 👈 reduced (important)
-    height: "150px",
     background: "#fff",
     position: "relative",
     borderRadius: "12px",
@@ -134,7 +172,6 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    transition: "0.3s",
   },
 
   flap: {
@@ -152,11 +189,8 @@ const styles = {
     fontWeight: "bold",
   },
 
-  /* 🎁 Button */
   surpriseBtn: {
-    marginTop: "50px",
-    padding: "12px 25px",
-    fontSize: "16px",
+    marginTop: "40px",
     background: "#ec4899",
     color: "white",
     border: "none",
@@ -164,7 +198,6 @@ const styles = {
     cursor: "pointer",
   },
 
-  /* 💖 POPUP */
   overlay: {
     position: "fixed",
     inset: 0,
@@ -175,36 +208,29 @@ const styles = {
     alignItems: "center",
   },
 
-popup: {
-  background: "white",
-  padding: "40px",
-  borderRadius: "15px",
-  width: "400px",
-  textAlign: "center",
-  position: "relative", // ✅ IMPORTANT FIX
-},
+  popup: {
+    background: "white",
+    borderRadius: "15px",
+    textAlign: "center",
+    position: "relative",
+  },
 
-popupBack: {
-  position: "absolute",
-  top: "12px",
-  left: "12px",
-
-  background: "linear-gradient(135deg, #ec4899, #f43f5e)",
-  color: "white",
-  border: "none",
-  cursor: "pointer",
-
-  padding: "6px 14px",
-  borderRadius: "20px",
-  fontSize: "12px",
-  fontWeight: "bold",
-
-  boxShadow: "0 8px 20px rgba(236,72,153,0.4)",
-},
+  popupBack: {
+    position: "absolute",
+    top: "2px",
+    left: "12px",
+    background: "linear-gradient(135deg, #ec4899, #f43f5e)",
+    color: "white",
+    border: "none",
+    cursor: "pointer",
+    padding: "6px 14px",
+    borderRadius: "20px",
+    fontSize: "12px",
+    fontWeight: "bold",
+  },
 
   message: {
-    fontSize: "20px",
     color: "#444",
-    lineHeight: "1.6",
+    lineHeight: "1.5",
   },
 };
