@@ -2,30 +2,31 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // IMPORT ALL IMAGES
-import img1 from "../../assets/IMG20250615231557.jpg";
-import img2 from "../../assets/IMG20250902221756.jpg";
-import img3 from "../../assets/IMG20250902221806.jpg";
-import img4 from "../../assets/IMG20250902221814.jpg";
-import img5 from "../../assets/IMG20260103235703.jpg";
-import img6 from "../../assets/IMG20260103235715.jpg";
-import img7 from "../../assets/IMG20260103235718.jpg";
-import img8 from "../../assets/IMG20260103235722.jpg";
-import img9 from "../../assets/IMG20260106204610.jpg";
-import img10 from "../../assets/IMG20260106204615.jpg";
-import img11 from "../../assets/IMG20260103235718.jpg";
-import img12 from "../../assets/IMG20250615231557.jpg";
-import img13 from "../../assets/hero.png";
-import img14 from "../../assets/hero.png";
-import img15 from "../../assets/hero.png";
-import img16 from "../../assets/IMG20250615231557.jpg";
-import img17 from "../../assets/IMG20250615231557.jpg";
-import img18 from "../../assets/IMG20250615231557.jpg";
-import img19 from "../../assets/IMG20250615231557.jpg";
-import img20 from "../../assets/IMG20250615231557.jpg";
-import img21 from "../../assets/IMG20250615231557.jpg";
-import img22 from "../../assets/IMG20250615231557.jpg";
-import img23 from "../../assets/IMG20250615231557.jpg";
-import img24 from "../../assets/IMG20250615231557.jpg";
+import img1 from "../../assets/Snapchat-1034245975.jpg";
+import img2 from "../../assets/Snapchat-1059345659.jpg";
+import img3 from "../../assets/Snapchat-1081251612.jpg";
+import img4 from "../../assets/Snapchat-1208600906.jpg";
+import img5 from "../../assets/Snapchat-1256204860.jpg";
+import img6 from "../../assets/Snapchat-127768062.jpg";
+import img7 from "../../assets/Snapchat-1413817022.jpg";
+import img8 from "../../assets/Snapchat-1419465838.jpg";
+import img9 from "../../assets/Snapchat-1852451824.jpg";
+import img10 from "../../assets/Snapchat-1898650029.jpg";
+import img11 from "../../assets/Snapchat-18999747.jpg";
+import img12 from "../../assets/Snapchat-1919977668.jpg";
+import img13 from "../../assets/Snapchat-1925610287.jpg";
+import img14 from "../../assets/Snapchat-1939707654.jpg";
+import img15 from "../../assets/Snapchat-1942665042.jpg";
+import img16 from "../../assets/Snapchat-1985900138.jpg";
+import img17 from "../../assets/Snapchat-2008387605.jpg";
+import img18 from "../../assets/Snapchat-2068439798.jpg";
+import img19 from "../../assets/Snapchat-2095416156.jpg";
+import img20 from "../../assets/Snapchat-30312724.jpg";
+import img21 from "../../assets/Snapchat-322822970.jpg";
+import img22 from "../../assets/Snapchat-46512100.jpg";
+import img23 from "../../assets/Snapchat-53974245.jpg";
+import img24 from "../../assets/Snapchat-72880346.jpg";
+import img25 from "../../assets/Snapchat-958051883.jpg";
 
 
 export default function Memories() {
@@ -60,6 +61,7 @@ const navigate = useNavigate();
     { img: img22, text: "Moments of joy 😄" },
     { img: img23, text: "Dream together 🌙" },
     { img: img24, text: "Endless memories 📸" },
+    { img: img25, text: " Cherished moments 📷" },
   ];
 
 useEffect(() => {
@@ -227,9 +229,9 @@ surpriseBtn: {
   },
 
   grid: {
-  display: "grid",
-  gridTemplateColumns: "repeat(3, 1fr)", // 👈 FIXED 4 columns
-  gap: "25px",
+    display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+  gap: "20px",
 },
 
 card: {

@@ -9,7 +9,7 @@ import WhyILovesYou from "../pages/cards/WhyILoveYou";
 import FinalLove from "../pages/cards/FinalPage"; 
 export default function AppRoutes() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/altamash/">
       <Routes>
         <Route path="/" element={<Login />} />
         
@@ -47,6 +47,8 @@ export default function AppRoutes() {
               <FinalLove />
             </PrivateRoute>
           } />
+
+          <Route path="*" element={<Login />} />
       </Routes>
 
     </BrowserRouter>
