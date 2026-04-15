@@ -23,6 +23,10 @@ export default function WhyILovesYou() {
     "I Love You Because I Can't Live Without You 🥹",
     "I Love You When You Calls Me Shonaa I Love You My Tayyuuuu.....😘",
     "I Love You When You Becomes More Romantic Than Meeh...... 💋🫦",
+    "I Love You When You Becomes More Possesive For Meeh......",
+    "I Love You When You Gives More Orders To Meeh...... ",
+    "I Just Hate One Thing When You Fight With Me And Leaves Me Alone...... ",
+    "I Love You I Love You Without Any Reason I Just Love You .....",
   ];
 
   return (
